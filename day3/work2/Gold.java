@@ -8,7 +8,7 @@ class Gold implements IMember{
         this.totalAmount = totalAmount;
     }
 
-    @Override
+    @Override //ここが重要
     public double priceCut() {
         return totalAmount - totalAmount*DISCOUNT;
     }

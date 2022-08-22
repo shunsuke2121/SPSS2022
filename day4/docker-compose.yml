@@ -1,0 +1,12 @@
+version: "3"
+services:
+  mysql: #コンテナ名
+    build:
+      context: ./mysql/ #mysqlにある
+      dockerfile: Dockerfile # Dockerfileでビルドします
+    volumes: # データを保存する(ローカルのどのファイルを:コンテナのどのファイルに)
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+    environment: #環境変数 今回はMySQLのパスワードをrootにした
+      - MYSQL_ROOT_PASSWORD=root
+    expose:
+      - 3306
